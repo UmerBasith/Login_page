@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Login Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Icons (optional, using simple placeholder or CDN if needed inside i tags) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="background/istockphoto-896748986-640_adpp_is.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <!-- <div id="canvas-container"></div> -->
+
+    <!-- Sports Car Parallax Image (Rear View) -->
+    <img src="https://wallpapers.com/images/high/bmw-m4-cs-rear-view-4k-car-wallpaper-3d12x2z268686868.jpg"
+        style="display:none;"
+        onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/2018_Mercedes-Benz_AMG_GT_R_V8_4.0_Rear.jpg/1200px-2018_Mercedes-Benz_AMG_GT_R_V8_4.0_Rear.jpg'">
+
+    <!-- Reliable BMW Image URL (with fallback) -->
+    <img src="https://freepngimg.com/thumb/bmw/1-2-bmw-png.png" alt="BMW Car" class="bmw-car" id="bmw-car"
+        onerror="this.src='https://purepng.com/public/uploads/large/purepng.com-grey-bmw-m4-gts-carcarbmwvehicletransport-9615246631627z24o.png'">
+
+    <div class="auth-wrapper" id="auth-wrapper">
+        <!-- Background Shapes for Animation -->
+        <div class="background-shape"></div>
+        <div class="secondary-shape"></div>
+
+        <!-- Sign In Panel -->
+        <div class="credentials-panel signin">
+            <h2 class="slide-element">Sign In</h2>
+            <form class="slide-element">
+                <div class="field-wrapper">
+                    <input type="text" required>
+                    <label>Username</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="field-wrapper">
+                    <input type="password" required>
+                    <label>Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="switch-link">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="submit-button">Log In</button>
+                <div class="switch-link">
+                    <span>Don't have an account? </span>
+                    <a href="#" onclick="toggleAuth(); return false;">Sign Up</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Sign Up Panel -->
+        <div class="credentials-panel signup">
+            <h2 class="slide-element">Sign Up</h2>
+            <form class="slide-element">
+                <div class="field-wrapper">
+                    <input type="text" required>
+                    <label>Username</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="field-wrapper">
+                    <input type="email" required>
+                    <label>Email</label>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="field-wrapper">
+                    <input type="password" required>
+                    <label>Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="field-wrapper">
+                    <input type="password" required>
+                    <label>Confirm Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="submit-button">Sign Up</button>
+                <div class="switch-link">
+                    <span>Already have an account? </span>
+                    <a href="#" onclick="toggleAuth(); return false;">Sign In</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Welcome Section (Sign In Side) -->
+        <div class="welcome-section signin">
+            <div class="slide-element">
+                <h2>Welcome Back!</h2>
+                <p>Enter your personal details to use all of site features.</p>
+            </div>
+        </div>
+
+        <!-- Welcome Section (Sign Up Side) -->
+        <div class="welcome-section signup">
+            <div class="slide-element">
+                <h2>Hello, Friend!</h2>
+                <p>Register with your personal details to use all of site features.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
